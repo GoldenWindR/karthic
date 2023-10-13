@@ -2,12 +2,21 @@ extends CharacterBody2D
 var max_hp = 100
 var hp = max_hp
 var shild = 0
+var health_progress_bar
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _ready():
+	health_progress_bar = $ProgressBar
+	
+func _process(delta):
+
+	health_progress_bar.max_value = max_hp 
+	health_progress_bar.value = hp 
+
 func take_damage(damage):
 	hp -= damage
 	if hp <=0:
@@ -34,3 +43,4 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
