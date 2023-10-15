@@ -1,9 +1,9 @@
 extends CharacterBody2D
+
 var max_hp = 100
 var hp = max_hp
 var shild = 0
 var health_progress_bar
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -44,3 +44,8 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
+
+
+func _on_area_2d_body_entered(body):
+	hp-=5
+	print("weszłeś")
