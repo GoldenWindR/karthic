@@ -21,12 +21,16 @@ func take_damage(damage):
 	hp -= damage
 	if hp <=0:
 		hp =0
+		if hp <= 0:
+			hp=0
+			hide()
+
 
 func heal(amount):
 	hp += amount
 	if hp > max_hp:
 		hp = max_hp
-		
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -47,5 +51,5 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	hp-=5
+	take_damage(10)
 	print("weszłeś")

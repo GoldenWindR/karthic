@@ -35,19 +35,13 @@ func _input(event):
 				start_combat()
 ####################################################################################################
 func start_combat():
-	# Funkcja zarządzająca walką turową
+	# Funkcja zarządzająca walką turową	
 	while is_in_combat and hp > 0:
 		await get_tree().create_timer(15.0).timeout  # Przerwa między turami wroga
-		perform_attack()
+
 	if hp <= 0:
 		print("Enemy of type", EnemyType, "defeated!")
 
-func perform_attack():
-	# Funkcja wykonująca atak wroga
-	if is_in_combat:
-		var attack_value = attack_values[EnemyType]
-		player.take_damage(attack_value)
-		print("Enemy of type", EnemyType, "dealt", attack_value, "damage to the player!")
 
 func take_damage(damage):
 	# Funkcja obsługująca zadawane obrażenia wrogowi
