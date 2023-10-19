@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://n7j7ev4bbf3s"]
+[gd_scene load_steps=5 format=3 uid="uid://n7j7ev4bbf3s"]
 
-[ext_resource type="Script" path="res://Menu.gd" id="1_80bsp"]
+[ext_resource type="Script" path="res://MainManu/Menu.gd" id="1_80bsp"]
 [ext_resource type="Texture2D" uid="uid://c6gy4eubxny8i" path="res://assets/tlo_menu_preset.png" id="1_oq1sb"]
 [ext_resource type="Texture2D" uid="uid://iikjrxiejch2" path="res://assets/karthic logo.png" id="2_726to"]
+[ext_resource type="Theme" uid="uid://ce6iabrxpuoj3" path="res://MainManu/ManuTheme.tres" id="3_dqcke"]
 
 [node name="Menu" type="Node2D"]
 
@@ -19,13 +20,14 @@ texture = ExtResource("2_726to")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 74.0
+offset_left = 75.0
 offset_top = 530.0
-offset_right = 231.0
+offset_right = 232.0
 offset_bottom = 631.0
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("3_dqcke")
 script = ExtResource("1_80bsp")
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
