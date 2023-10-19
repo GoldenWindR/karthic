@@ -23,7 +23,9 @@ func take_damage(damage):
 		hp =0
 		if hp <= 0:
 			hp=0
+			get_tree().change_scene_to_file("res://GameOver/GameOver.tscn")
 			hide()
+			
 
 
 func heal(amount):
