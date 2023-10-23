@@ -53,5 +53,5 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	take_damage(10)
+	get_tree().change_scene_to_file("res://FightScreen/FightScene.tscn")
 	print("weszłeś")

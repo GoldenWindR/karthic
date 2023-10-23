@@ -18,12 +18,6 @@ func _ready():
 func _process(delta):
 	sprite.play("default")
 
-func _on_detection_area_body_entered(body):
-	if body is CharacterBody2D and not is_in_combat:
-		is_in_combat = true
-		get_tree().change_scene_to_file("res://Worlds/FightScene.tscn")
-		print("Combat started with enemy of type", EnemyType)
-		start_combat()
 ##################################################Przenieść do logiki gracza#######################
 func _input(event): 
 	if event is InputEventMouseButton and event.pressed:
