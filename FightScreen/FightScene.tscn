@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy2ng33wnpnjx"]
+[gd_scene load_steps=5 format=3 uid="uid://cy2ng33wnpnjx"]
 
 [ext_resource type="PackedScene" uid="uid://btl3jrqdy5nma" path="res://Player/player.tscn" id="1_15kpb"]
 [ext_resource type="PackedScene" uid="uid://dew7e5wpuifgu" path="res://Enemy/enemy.tscn" id="2_1tt3n"]
+[ext_resource type="Script" path="res://FightScreen/card1.gd" id="3_bkcuu"]
+[ext_resource type="Script" path="res://FightScreen/DropZone.gd" id="4_hwsjj"]
 
 [node name="FightScene" type="Node2D"]
 
@@ -18,3 +20,24 @@ motion_mode = 1
 position = Vector2(1055, 560)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Cards" type="VBoxContainer" parent="."]
+offset_right = 1227.0
+offset_bottom = 1011.0
+
+[node name="card1" type="TextureRect" parent="Cards"]
+layout_mode = 2
+script = ExtResource("3_bkcuu")
+
+[node name="card2" type="TextureRect" parent="Cards"]
+layout_mode = 2
+
+[node name="card3" type="TextureRect" parent="Cards"]
+layout_mode = 2
+
+[node name="DropZone" type="HBoxContainer" parent="."]
+offset_left = 219.0
+offset_top = 126.0
+offset_right = 942.0
+offset_bottom = 640.0
+script = ExtResource("4_hwsjj")
