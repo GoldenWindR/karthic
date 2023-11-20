@@ -1,12 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy2ng33wnpnjx"]
+[gd_scene load_steps=8 format=3 uid="uid://cy2ng33wnpnjx"]
 
 [ext_resource type="PackedScene" uid="uid://btl3jrqdy5nma" path="res://Player/player.tscn" id="1_15kpb"]
 [ext_resource type="PackedScene" uid="uid://dew7e5wpuifgu" path="res://Enemy/enemy.tscn" id="2_1tt3n"]
-[ext_resource type="Script" path="res://FightScreen/card1.gd" id="3_bkcuu"]
 [ext_resource type="Script" path="res://FightScreen/DropZone.gd" id="4_hwsjj"]
+[ext_resource type="Script" path="res://FightScreen/Karta165.gd" id="5_7btss"]
 [ext_resource type="Texture2D" uid="uid://cy3e4xek1s75u" path="res://assets/karta_1 64.png" id="5_aquvw"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_axn83"]
+[ext_resource type="Script" path="res://FightScreen/Karta166.gd" id="5_db1mt"]
+[ext_resource type="Script" path="res://FightScreen/Karta164.gd" id="5_xlb4y"]
 
 [node name="FightScene" type="Node2D"]
 
@@ -24,44 +24,26 @@ position = Vector2(1055, 560)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="Cards" type="VBoxContainer" parent="."]
-offset_right = 1227.0
-offset_bottom = 1011.0
-
-[node name="card1" type="TextureRect" parent="Cards"]
-layout_mode = 2
-script = ExtResource("3_bkcuu")
-card_texture = SubResource("ViewportTexture_axn83")
-
-[node name="card2" type="TextureRect" parent="Cards"]
-layout_mode = 2
-
-[node name="card3" type="TextureRect" parent="Cards"]
-layout_mode = 2
-
-[node name="DropZone" type="HBoxContainer" parent="."]
-offset_left = 219.0
-offset_top = 2.0
-offset_right = 942.0
-offset_bottom = 408.0
+[node name="DropZOne" type="Area2D" parent="."]
+position = Vector2(-3, -8)
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("4_hwsjj")
 
-[node name="Karta164" type="Sprite2D" parent="."]
-position = Vector2(587, 524.75)
-scale = Vector2(2.36719, 2.15816)
-texture = ExtResource("5_aquvw")
-
-[node name="Karta167" type="Sprite2D" parent="Karta164"]
-position = Vector2(532, 518)
-scale = Vector2(1.95313, 1.91837)
-texture = ExtResource("5_aquvw")
-
-[node name="Karta165" type="Sprite2D" parent="."]
-position = Vector2(748.5, 523.5)
-scale = Vector2(2.48438, 2.17347)
-texture = ExtResource("5_aquvw")
-
-[node name="Karta166" type="Sprite2D" parent="."]
+[node name="Karta166" type="Sprite2D" parent="DropZOne"]
 position = Vector2(426.25, 523)
 scale = Vector2(2.28906, 2.13265)
 texture = ExtResource("5_aquvw")
+script = ExtResource("5_db1mt")
+
+[node name="Karta165" type="Sprite2D" parent="DropZOne"]
+position = Vector2(748.5, 523.5)
+scale = Vector2(2.48438, 2.17347)
+texture = ExtResource("5_aquvw")
+script = ExtResource("5_7btss")
+
+[node name="Karta164" type="Sprite2D" parent="DropZOne"]
+position = Vector2(587, 524.75)
+scale = Vector2(2.36719, 2.15816)
+texture = ExtResource("5_aquvw")
+script = ExtResource("5_xlb4y")
