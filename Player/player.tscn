@@ -13,6 +13,11 @@ size = Vector2(146, 152)
 position = Vector2(137, 87)
 script = ExtResource("1_i8jbn")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(4, -103)
+offset = Vector2(0, 10)
+zoom = Vector2(2, 2)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3.5, 8)
 scale = Vector2(1.26563, 1.26)
