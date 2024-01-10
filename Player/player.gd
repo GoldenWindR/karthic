@@ -21,7 +21,8 @@ func _process(delta):
 	health_progress_bar.max_value = max_hp 
 	health_progress_bar.value = hp 
 
-func take_damage(damage):
+func take_damage(damage: int):
+	print("dostal")
 	hp -= damage
 	if hp <=0:
 		hp =0
