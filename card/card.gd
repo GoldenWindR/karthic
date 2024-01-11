@@ -1,6 +1,7 @@
 extends Node2D
 @onready var sprite = $Sprite2D
 @onready var swinger = $Sprite2D/Swinnger
+var random_index = 0;
 
 signal mouse_released
 signal picked_up_changed(picked)
@@ -22,7 +23,6 @@ var picked_up:bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize_sprite()
-
 
 
 
@@ -48,10 +48,23 @@ func _on_mause_region_pressed():
 	await mouse_released
 	picked_up = false
 	var Enemy=get_parent().get_node("Enemy")
-	if Enemy:
-		Enemy.take_damage(10)
+	var Player=get_parent().get_node("Player")
+	match random_index:
+		0:
+			Enemy.take_damage(1)
+		1:
+			Enemy.take_damage(3)
+		2:
+			Enemy.take_damage(2)
+		3:
+			Enemy.take_damage(2)
+			Enemy.fier_set()
+		4:
+			Player.take_shild(3)
+			
 	hide_object()
 
 func randomize_sprite():
-	var random_index = randi() % sprites.size()
+	random_index = randi() % sprites.size()
 	sprite.texture = sprites[random_index]
+	print(random_index)

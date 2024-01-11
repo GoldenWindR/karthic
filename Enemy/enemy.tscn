@@ -208,6 +208,12 @@ position = Vector2(20, -18)
 scale = Vector2(1.625, 1.5625)
 sprite_frames = SubResource("SpriteFrames_pwgh1")
 
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -102.0
+offset_top = -139.0
+offset_right = 103.0
+offset_bottom = -112.0
+
 [node name="detectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detectionArea"]

@@ -7,9 +7,11 @@ func _ready():
 func _pressed():
 	var Player=get_parent().get_node("Player")
 	if Player:
-		Player.take_damage(10)
-	else:
-		print("Obiekt A nie został znaleziony.")
+		Player.take_damage(1)
+	var Enemy=get_parent().get_node("Enemy")
+	if Enemy:
+		Enemy.turn_number()
+	
 	var CardResset=get_parent().get_node("Card")
 	if CardResset:
 		CardResset.reset_object(50)
