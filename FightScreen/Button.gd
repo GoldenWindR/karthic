@@ -8,6 +8,7 @@ func _pressed():
 	var Player=get_parent().get_node("Player")
 	if Player:
 		Player.take_damage(1)
+		Player.mana_reset()
 	var Enemy=get_parent().get_node("Enemy")
 	if Enemy:
 		Enemy.turn_number()

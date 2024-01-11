@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cy2ng33wnpnjx"]
+[gd_scene load_steps=8 format=3 uid="uid://cy2ng33wnpnjx"]
 
 [ext_resource type="PackedScene" uid="uid://btl3jrqdy5nma" path="res://Player/player.tscn" id="1_15kpb"]
 [ext_resource type="Script" path="res://FightScreen/FightScene.gd" id="1_gtrdr"]
 [ext_resource type="PackedScene" uid="uid://dew7e5wpuifgu" path="res://Enemy/enemy.tscn" id="2_1tt3n"]
 [ext_resource type="PackedScene" uid="uid://1h2xf1bhkbw2" path="res://card/card.tscn" id="4_ruv1l"]
+[ext_resource type="Texture2D" uid="uid://iunq1i3xkln7" path="res://assets/ruda.png" id="6_px4f2"]
+[ext_resource type="Script" path="res://FightScreen/Label.gd" id="7_xlinu"]
 [ext_resource type="Script" path="res://FightScreen/Button.gd" id="9_do18d"]
 
 [node name="FightScene" type="Node2D"]
@@ -41,3 +43,16 @@ position = Vector2(586, 532)
 
 [node name="Card3" parent="." instance=ExtResource("4_ruv1l")]
 position = Vector2(442, 532)
+
+[node name="Ruda" type="Sprite2D" parent="."]
+position = Vector2(292, 511)
+scale = Vector2(0.984375, 1.16584)
+texture = ExtResource("6_px4f2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 289.0
+offset_top = 501.0
+offset_right = 346.0
+offset_bottom = 532.0
+text = "2"
+script = ExtResource("7_xlinu")

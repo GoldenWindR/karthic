@@ -4,7 +4,7 @@ var max_hp = 30
 var hp
 var shild = 0
 var health_progress_bar
-var mana = 3
+var mana = 2
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -42,7 +42,7 @@ func mana_cost(amount):
 	mana -= amount
 
 func mana_reset():
-	mana = 3 
+	mana = 2 
 
 func have_mana():
 	return mana

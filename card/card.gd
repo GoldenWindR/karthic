@@ -28,6 +28,29 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var Player=get_parent().get_node("Player")
+	var mana = Player.have_mana()
+	print(mana)
+	match random_index:
+		0:
+			if mana < 1:
+				hide_object()
+		1:
+			if mana < 1:
+				hide_object()
+			
+		2:
+			if mana < 1:
+				hide_object()
+			
+		3:
+			if mana < 2:
+				hide_object()
+			
+		4:
+			if mana < 1:
+				hide_object()
+			
 	if picked_up:
 		global_position = get_global_mouse_position()
 		
@@ -38,6 +61,7 @@ func reset_object(n):
 	visible = true
 	randomize_sprite()
 	global_position = Vector2((scene_width / 2)-(100+n), scene_height)
+
 
 
 func hide_object():
@@ -52,15 +76,20 @@ func _on_mause_region_pressed():
 	match random_index:
 		0:
 			Enemy.take_damage(1)
+			Player.mana_cost(1)
 		1:
 			Enemy.take_damage(3)
+			Player.mana_cost(1)
 		2:
 			Enemy.take_damage(2)
+			Player.mana_cost(1)
 		3:
 			Enemy.take_damage(2)
+			Player.mana_cost(2)
 			Enemy.fier_set()
 		4:
 			Player.take_shild(3)
+			Player.mana_cost(1)
 			
 	hide_object()
 
