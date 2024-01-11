@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://cy2ng33wnpnjx"]
+
+[ext_resource type="PackedScene" uid="uid://btl3jrqdy5nma" path="res://Player/player.tscn" id="1_15kpb"]
+[ext_resource type="PackedScene" uid="uid://dew7e5wpuifgu" path="res://Enemy/enemy.tscn" id="2_1tt3n"]
+[ext_resource type="Texture2D" uid="uid://12a8rretlhsh" path="res://assets/card/1.png" id="4_jv3de"]
+[ext_resource type="Script" path="res://FightScreen/Use.gd" id="4_leiho"]
+[ext_resource type="Script" path="res://FightScreen/grab.gd" id="5_th6l8"]
+[ext_resource type="Script" path="res://FightScreen/Button.gd" id="9_do18d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yjgoy"]
+size = Vector2(1109, 266)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwb6o"]
+size = Vector2(116.5, 194)
+
+[node name="FightScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 325)
+
+[node name="Player" parent="." instance=ExtResource("1_15kpb")]
+position = Vector2(126, 521)
+motion_mode = 1
+
+[node name="Enemy" parent="." instance=ExtResource("2_1tt3n")]
+position = Vector2(1055, 560)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1025.0
+offset_top = 3.0
+offset_right = 1151.0
+offset_bottom = 93.0
+text = "Konieć
+tury"
+script = ExtResource("9_do18d")
+
+[node name="Use" type="Area2D" parent="."]
+script = ExtResource("4_leiho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Use"]
+position = Vector2(582.5, 298)
+shape = SubResource("RectangleShape2D_yjgoy")
+
+[node name="grab" type="Area2D" parent="."]
+position = Vector2(153, 114)
+script = ExtResource("5_th6l8")
+
+[node name="Sprite2D" type="Sprite2D" parent="grab"]
+position = Vector2(264, 423)
+texture = ExtResource("4_jv3de")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grab"]
+position = Vector2(263.75, 424)
+shape = SubResource("RectangleShape2D_gwb6o")
+one_way_collision_margin = 0.0
+
+[connection signal="input_event" from="grab" to="grab" method="_on_input_event"]

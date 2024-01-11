@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://1h2xf1bhkbw2"]
+
+[ext_resource type="Script" path="res://card/card.gd" id="1_xy7w5"]
+[ext_resource type="Texture2D" uid="uid://12a8rretlhsh" path="res://assets/card/1.png" id="2_bcyy4"]
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_xy7w5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bcyy4")
+
+[node name="Swinnger" type="Control" parent="Sprite2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MauseRegion" type="Button" parent="Sprite2D"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -98.0
+offset_right = -64.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+
+[connection signal="pressed" from="Sprite2D/MauseRegion" to="." method="_on_mause_region_pressed"]
