@@ -12,6 +12,7 @@ func _pressed():
 	var Enemy=get_parent().get_node("Enemy")
 	if Enemy:
 		Enemy.turn_number()
+		Enemy.attack_animation()
 	
 	var CardResset=get_parent().get_node("Card")
 	if CardResset:
