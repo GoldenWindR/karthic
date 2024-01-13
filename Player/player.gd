@@ -13,7 +13,7 @@ var canWalk = false
 var direction
 
 func _ready():
-	hp = max_hp
+	hp = Global.hp_now()
 	health_progress_bar = $ProgressBar
 	var currentScene = get_tree().get_current_scene()
 	if currentScene.get_name() =="world":
@@ -26,8 +26,10 @@ func _process(delta):
 
 func take_damage(damage: int):
 	damage = damage - shild
+	shild = 0
 	if damage > 0:
 		hp -= damage
+		Global.change_hp(hp)
 		print("damage w bochatera", damage)
 		if hp <=0:
 			hp =0
@@ -66,6 +68,10 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	get_tree().change_scene_to_file("res://FightScreen/FightScene.tscn")
+	print(body.name)
+	if body.name == "Enemy":
+		get_tree().change_scene_to_file("res://FightScreen/FightScene.tscn")
+	if body.name == "Krwiopijca":
+		get_tree().change_scene_to_file("res://FightScreen2/FightScreen2.tscn")
 	canWalk = false
 

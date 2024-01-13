@@ -49,7 +49,7 @@ func _on_mause_region_pressed():
 	picked_up = true
 	await mouse_released
 	picked_up = false
-	var Enemy = get_parent().get_node("Enemy")
+	var Enemy = get_parent().enemy_name()
 	var Player = get_parent().get_node("Player")
 	match random_index:
 		0:

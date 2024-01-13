@@ -7,7 +7,7 @@
 size = Vector2(62, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cn01g"]
-size = Vector2(146, 152)
+size = Vector2(174, 152)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(137, 87)
@@ -24,6 +24,8 @@ scale = Vector2(1.26563, 1.26)
 texture = ExtResource("2_mi1v2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 9
+visibility_layer = 9
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_m8mw6")
 
@@ -33,13 +35,16 @@ offset_left = -89.0
 offset_top = -94.0
 offset_right = 98.0
 offset_bottom = -67.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(3, -11)
+light_mask = 2
+visibility_layer = 2
+position = Vector2(17, -11)
 shape = SubResource("RectangleShape2D_cn01g")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
