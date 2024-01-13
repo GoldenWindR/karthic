@@ -1,10 +1,15 @@
-[gd_scene load_steps=157 format=3 uid="uid://dew7e5wpuifgu"]
+[gd_scene load_steps=162 format=3 uid="uid://dew7e5wpuifgu"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_6svyl"]
 [ext_resource type="Texture2D" uid="uid://dwvc8qhmhkjce" path="res://assets/Scierwojad-atak.png" id="2_al21r"]
 [ext_resource type="Texture2D" uid="uid://dx3tl2bxnvenr" path="res://assets/Scierwojad.png" id="2_emhsv"]
 [ext_resource type="Texture2D" uid="uid://bih4rnnhbddy0" path="res://assets/take_dmg.png" id="3_3yqnr"]
 [ext_resource type="Texture2D" uid="uid://biyde1n3ortri" path="res://assets/fier_dmg.png" id="4_1beoo"]
+[ext_resource type="Texture2D" uid="uid://b0cpfy336266q" path="res://assets/fire_icon.png" id="6_imvwy"]
+[ext_resource type="Script" path="res://Enemy/effect2.gd" id="6_rwxi1"]
+[ext_resource type="Texture2D" uid="uid://b38r7gsv348bf" path="res://assets/poison_icon.png" id="7_rvv4k"]
+[ext_resource type="Texture2D" uid="uid://doq2xmehnfxqy" path="res://assets/attact_icon.png" id="9_lb81g"]
+[ext_resource type="FontFile" uid="uid://bnwavei46sbfb" path="res://Fonts/Perfect DOS VGA 437 Win.ttf" id="10_gphh0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i8pxs"]
 atlas = ExtResource("2_al21r")
@@ -1107,3 +1112,39 @@ collision_mask = 2
 light_mask = 2
 visibility_layer = 2
 shape = SubResource("CircleShape2D_qhk5w")
+
+[node name="effect2" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 77.0
+offset_top = -105.0
+offset_right = 77.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.32, 0.32)
+script = ExtResource("6_rwxi1")
+
+[node name="fier" type="Sprite2D" parent="effect2"]
+texture = ExtResource("6_imvwy")
+
+[node name="poison" type="Sprite2D" parent="effect2"]
+position = Vector2(64, 19)
+texture = ExtResource("7_rvv4k")
+
+[node name="next_move" type="Node2D" parent="."]
+position = Vector2(-119, -126)
+scale = Vector2(0.5, 0.5)
+
+[node name="sword" type="Sprite2D" parent="next_move"]
+texture = ExtResource("9_lb81g")
+
+[node name="dmgnr" type="Label" parent="next_move"]
+offset_left = -49.0
+offset_top = -18.0
+offset_right = -9.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("10_gphh0")
+theme_override_font_sizes/font_size = 44
+text = "0"

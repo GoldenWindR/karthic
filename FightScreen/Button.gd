@@ -6,13 +6,15 @@ func _ready():
 	pass
 func _pressed():
 	var Player=get_parent().get_node("Player")
-	if Player:
-		Player.take_damage(1)
-		Player.mana_reset()
 	var Enemy=get_parent().get_node("Enemy")
 	if Enemy:
 		Enemy.turn_number()
 		Enemy.attack_animation()
+	if Player:
+		Player.take_damage(Enemy.dmg_now())
+		Enemy.dmg_rng()
+		Player.mana_reset()
+
 	
 	var CardResset=get_parent().get_node("Card")
 	if CardResset:

@@ -3,10 +3,14 @@ extends CharacterBody2D
 @onready var sprite2 = $AnimatedSprite2D2
 @onready var sprite3 = $AnimatedSprite2D3
 @onready var sprite5 = $effect
+@onready var dmgnr =$next_move/dmgnr
+
+var dmgnumber : int = randf_range(0, 4)
 var health_progress_bar
 var max_hp = 100
 var hp = max_hp
 var is_on_fier : bool = false
+var have_poison : bool = false
 var is_in_combat : bool = false
 var is_attack : bool = false
 var taking_dmg : bool = false
@@ -31,6 +35,7 @@ func _process(delta):
 	health_progress_bar.max_value = max_hp 
 	health_progress_bar.value = hp 
 	var status = Global.this_enemy2_live()
+	dmgnr.set_text(str(dmgnumber)+ "x3")
 		
 	if !taking_dmg:
 		sprite5.play("default")
@@ -38,6 +43,12 @@ func _process(delta):
 	if !status:
 		queue_free() 
 		
+
+func dmg_rng():
+	dmgnumber = randf_range(0, 4)
+func dmg_now():
+	return dmgnumber
+
 
 	
 func fier_set():
@@ -82,4 +93,12 @@ func take_damage(damage):
 		Global.enemy2_die()
 		queue_free() 
 		get_tree().change_scene_to_file("res://Worlds/world.tscn")
+
+
+func poison_status():
+	return have_poison
+	
+func fier_status():
+	return is_on_fier
+
 

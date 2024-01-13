@@ -1,6 +1,6 @@
 extends Node
 var Soccer : int = 800
-var Player_hp = 30
+var Player_hp = 50
 var Enemy1_live : bool = true
 var Enemy2_live : bool = true
 var Enemy3_live : bool = true

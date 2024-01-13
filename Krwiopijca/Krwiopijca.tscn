@@ -1,9 +1,73 @@
-[gd_scene load_steps=108 format=3 uid="uid://daacuv5iwvjk8"]
+[gd_scene load_steps=113 format=3 uid="uid://daacuv5iwvjk8"]
 
 [ext_resource type="Script" path="res://Krwiopijca/Krwiopijca.gd" id="1_yk70k"]
 [ext_resource type="Texture2D" uid="uid://bih4rnnhbddy0" path="res://assets/take_dmg.png" id="2_5bde3"]
 [ext_resource type="Texture2D" uid="uid://dmfaexeijaj72" path="res://assets/krwiopijca.png" id="2_a6uxc"]
 [ext_resource type="Texture2D" uid="uid://biyde1n3ortri" path="res://assets/fier_dmg.png" id="3_a4psc"]
+[ext_resource type="Script" path="res://Krwiopijca/effect2.gd" id="5_fglsm"]
+[ext_resource type="Texture2D" uid="uid://b0cpfy336266q" path="res://assets/fire_icon.png" id="6_nde5d"]
+[ext_resource type="Texture2D" uid="uid://b38r7gsv348bf" path="res://assets/poison_icon.png" id="7_gusnk"]
+[ext_resource type="Texture2D" uid="uid://doq2xmehnfxqy" path="res://assets/attact_icon.png" id="8_rje81"]
+[ext_resource type="FontFile" uid="uid://bnwavei46sbfb" path="res://Fonts/Perfect DOS VGA 437 Win.ttf" id="9_anyef"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4o6l"]
+atlas = ExtResource("2_a6uxc")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urqru"]
+atlas = ExtResource("2_a6uxc")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkb3f"]
+atlas = ExtResource("2_a6uxc")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75mru"]
+atlas = ExtResource("2_a6uxc")
+region = Rect2(0, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5wkf"]
+atlas = ExtResource("2_a6uxc")
+region = Rect2(50, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i56qk"]
+atlas = ExtResource("2_a6uxc")
+region = Rect2(100, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm3w5"]
+atlas = ExtResource("2_a6uxc")
+region = Rect2(0, 100, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vgd48"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4o6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urqru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkb3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75mru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5wkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i56qk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm3w5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dvcrt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kia84"]
 atlas = ExtResource("2_5bde3")
@@ -670,65 +734,6 @@ animations = [{
 "speed": 30.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a4o6l"]
-atlas = ExtResource("2_a6uxc")
-region = Rect2(0, 0, 50, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_urqru"]
-atlas = ExtResource("2_a6uxc")
-region = Rect2(50, 0, 50, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mkb3f"]
-atlas = ExtResource("2_a6uxc")
-region = Rect2(100, 0, 50, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_75mru"]
-atlas = ExtResource("2_a6uxc")
-region = Rect2(0, 50, 50, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m5wkf"]
-atlas = ExtResource("2_a6uxc")
-region = Rect2(50, 50, 50, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i56qk"]
-atlas = ExtResource("2_a6uxc")
-region = Rect2(100, 50, 50, 50)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dm3w5"]
-atlas = ExtResource("2_a6uxc")
-region = Rect2(0, 100, 50, 50)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_vgd48"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_a4o6l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_urqru")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mkb3f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_75mru")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m5wkf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i56qk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dm3w5")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dvcrt"]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_qhk5w"]
 radius = 110.277
 
@@ -736,11 +741,6 @@ radius = 110.277
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_yk70k")
-
-[node name="effect" type="AnimatedSprite2D" parent="."]
-position = Vector2(25, 39.5)
-scale = Vector2(1.44, 1.39)
-sprite_frames = SubResource("SpriteFrames_ppjy8")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -99.0
@@ -764,6 +764,12 @@ sprite_frames = SubResource("SpriteFrames_vgd48")
 position = Vector2(-1, 2)
 shape = SubResource("CircleShape2D_dvcrt")
 
+[node name="effect" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4, -8)
+scale = Vector2(1.44, 1.39)
+sprite_frames = SubResource("SpriteFrames_ppjy8")
+animation = &"fire_dmg"
+
 [node name="detectionArea" type="Area2D" parent="."]
 light_mask = 2
 visibility_layer = 2
@@ -772,5 +778,41 @@ visibility_layer = 2
 light_mask = 2
 visibility_layer = 2
 shape = SubResource("CircleShape2D_qhk5w")
+
+[node name="effect2" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 79.0
+offset_top = -46.0
+offset_right = 79.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.32, 0.32)
+script = ExtResource("5_fglsm")
+
+[node name="fier" type="Sprite2D" parent="effect2"]
+texture = ExtResource("6_nde5d")
+
+[node name="poison" type="Sprite2D" parent="effect2"]
+position = Vector2(64, 19)
+texture = ExtResource("7_gusnk")
+
+[node name="next_move" type="Node2D" parent="."]
+position = Vector2(-119, -71)
+scale = Vector2(0.5, 0.5)
+
+[node name="sword" type="Sprite2D" parent="next_move"]
+texture = ExtResource("8_rje81")
+
+[node name="dmgnr" type="Label" parent="next_move"]
+offset_left = -64.0
+offset_top = -8.0
+offset_right = -24.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("9_anyef")
+theme_override_font_sizes/font_size = 35
+text = "0"
 
 [connection signal="body_entered" from="detectionArea" to="." method="_on_detection_area_body_entered" flags=18]

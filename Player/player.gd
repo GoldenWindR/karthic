@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
-var max_hp = 30
+@onready var shild_status = $shild
+@onready var shildnr = $shild/shildnr
+var max_hp = 50
 var hp
 var shild = 0
 var health_progress_bar
 var mana = 2
-
+var is_on_fier : bool = false
+var have_poison : bool = false
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -20,9 +23,14 @@ func _ready():
 		canWalk = true
 	
 func _process(delta):
-
 	health_progress_bar.max_value = max_hp 
 	health_progress_bar.value = hp 
+	if shild > 0:
+		shildnr.set_text(str(shild))
+		shild_status.visible = true
+	else:
+		shild_status.visible = false
+	
 
 func take_damage(damage: int):
 	damage = damage - shild
@@ -35,9 +43,10 @@ func take_damage(damage: int):
 			hp =0
 			if hp <= 0:
 				hp=0
+				Global.change_hp(max_hp)
 				get_tree().change_scene_to_file("res://GameOver/GameOver.tscn")
 				hide()
-			
+		
 
 
 func mana_cost(amount):
@@ -50,7 +59,7 @@ func have_mana():
 	return mana
 
 func take_shild(amount):
-	shild = amount 
+	shild += amount 
 
 
 func _physics_process(delta):
@@ -74,4 +83,10 @@ func _on_area_2d_body_entered(body):
 	if body.name == "Krwiopijca":
 		get_tree().change_scene_to_file("res://FightScreen2/FightScreen2.tscn")
 	canWalk = false
+	
+func poison_status():
+	return have_poison
+	
+func fier_status():
+	return is_on_fier
 
