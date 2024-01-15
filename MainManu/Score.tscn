@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvoqnmrpk0udx"]
+
+[ext_resource type="Script" path="res://MainManu/Score.gd" id="1_7evaf"]
+[ext_resource type="Texture2D" uid="uid://c6gy4eubxny8i" path="res://assets/tlo_menu_preset.png" id="2_lqk2l"]
+[ext_resource type="Script" path="res://MainManu/Label.gd" id="3_ripkt"]
+
+[node name="Score" type="Node2D"]
+script = ExtResource("1_7evaf")
+
+[node name="TloMenu" type="Sprite2D" parent="."]
+position = Vector2(600, 293)
+texture = ExtResource("2_lqk2l")
+
+[node name="Label" type="Label" parent="."]
+light_mask = 3
+visibility_layer = 3
+offset_left = 494.0
+offset_top = 226.0
+offset_right = 739.0
+offset_bottom = 484.0
+theme_override_font_sizes/font_size = 25
+script = ExtResource("3_ripkt")
