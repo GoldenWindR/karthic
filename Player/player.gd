@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@onready var Player_sprite = $AnimatedSprite2D
 @onready var shild_status = $shild
 @onready var shildnr = $shild/shildnr
 var max_hp = 50
