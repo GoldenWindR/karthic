@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://daacuv5iwvjk8" path="res://Krwiopijca/Krwiopijca.tscn" id="1_hveij"]
 [ext_resource type="PackedScene" uid="uid://btl3jrqdy5nma" path="res://Player/player.tscn" id="1_ke8lf"]
 [ext_resource type="Script" path="res://FightScreen2/FightScreen2.gd" id="1_kuwu6"]
-[ext_resource type="Texture2D" uid="uid://ce872cm3hjp32" path="res://assets/bg.jpg" id="2_8u0fo"]
+[ext_resource type="Texture2D" uid="uid://rg3v8kfxmpju" path="res://assets/tlo_walka.png" id="2_qoeg7"]
 [ext_resource type="Script" path="res://FightScreen2/Button.gd" id="3_dh4gl"]
 [ext_resource type="PackedScene" uid="uid://1h2xf1bhkbw2" path="res://card/card.tscn" id="4_c64yt"]
 [ext_resource type="Texture2D" uid="uid://iunq1i3xkln7" path="res://assets/ruda.png" id="5_mqn0g"]
@@ -15,9 +15,9 @@ position = Vector2(-590, -536)
 script = ExtResource("1_kuwu6")
 
 [node name="BG" type="Sprite2D" parent="."]
-position = Vector2(577, 397.75)
-scale = Vector2(1.0604, 1.30075)
-texture = ExtResource("2_8u0fo")
+position = Vector2(526.5, 369)
+scale = Vector2(2.61458, 3.05833)
+texture = ExtResource("2_qoeg7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 325)

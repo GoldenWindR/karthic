@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://btl3jrqdy5nma" path="res://Player/player.tscn" id="1_15kpb"]
 [ext_resource type="Script" path="res://FightScreen/FightScene.gd" id="1_gtrdr"]
 [ext_resource type="PackedScene" uid="uid://dew7e5wpuifgu" path="res://Enemy/enemy.tscn" id="2_1tt3n"]
-[ext_resource type="Texture2D" uid="uid://ce872cm3hjp32" path="res://assets/bg.jpg" id="2_iivs1"]
+[ext_resource type="Texture2D" uid="uid://rg3v8kfxmpju" path="res://assets/tlo_walka.png" id="2_li8dl"]
 [ext_resource type="PackedScene" uid="uid://1h2xf1bhkbw2" path="res://card/card.tscn" id="4_ruv1l"]
 [ext_resource type="Texture2D" uid="uid://iunq1i3xkln7" path="res://assets/ruda.png" id="6_px4f2"]
 [ext_resource type="FontFile" uid="uid://bnwavei46sbfb" path="res://Fonts/Perfect DOS VGA 437 Win.ttf" id="7_8cb4b"]
@@ -14,10 +14,10 @@
 position = Vector2(-583, -543)
 script = ExtResource("1_gtrdr")
 
-[node name="TloMenu" type="Sprite2D" parent="."]
-position = Vector2(577, 397.75)
-scale = Vector2(1.0604, 1.30075)
-texture = ExtResource("2_iivs1")
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(568, 372)
+scale = Vector2(2.61458, 3.1125)
+texture = ExtResource("2_li8dl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 325)
