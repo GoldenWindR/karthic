@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 Global="*res://Global.gd"
 Db="*res://DB.gd"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 M1={

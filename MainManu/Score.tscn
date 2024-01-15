@@ -20,3 +20,10 @@ offset_right = 739.0
 offset_bottom = 484.0
 theme_override_font_sizes/font_size = 25
 script = ExtResource("3_ripkt")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 168.0
+offset_bottom = 57.0
+text = "Powrót"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

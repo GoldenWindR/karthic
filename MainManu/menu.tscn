@@ -50,4 +50,5 @@ text = "Wyjdz"
 alignment = 0
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="VBoxContainer" method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScoorsButton" to="VBoxContainer" method="_on_scoors_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="VBoxContainer" method="_on_exit_button_pressed"]
