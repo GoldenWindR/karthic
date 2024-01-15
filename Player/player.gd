@@ -2,11 +2,13 @@ extends CharacterBody2D
 @onready var Player_sprite = $AnimatedSprite2D
 @onready var shild_status = $shild
 @onready var shildnr = $shild/shildnr
+
 var max_hp = 50
 var hp
 var shild = 0
 var health_progress_bar
 var mana = 2
+var moving : bool = false
 var is_on_fier : bool = false
 var have_poison : bool = false
 const SPEED = 300.0
@@ -30,6 +32,10 @@ func _process(delta):
 		shild_status.visible = true
 	else:
 		shild_status.visible = false
+	if !moving:
+		Player_sprite.play("default")
+	if moving:
+		Player_sprite.play("run")
 	
 
 func take_damage(damage: int):
@@ -70,9 +76,17 @@ func _physics_process(delta):
 			
 		direction = Input.get_axis("ui_left", "ui_right")
 		if direction:
+			
 			velocity.x = direction * SPEED
+			Player_sprite.play("run")
+			if direction < 0:
+				Player_sprite.flip_h = true
+			elif direction > 0:
+				Player_sprite.flip_h = false
+			moving = true
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+			moving = false
 		move_and_slide()
 
 
@@ -83,6 +97,7 @@ func _on_area_2d_body_entered(body):
 	if body.name == "Krwiopijca":
 		get_tree().change_scene_to_file("res://FightScreen2/FightScreen2.tscn")
 	canWalk = false
+	moving = false
 	
 func poison_status():
 	return have_poison
