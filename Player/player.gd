@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var score = $ColorRect/Label
 
 
-var score_value
+var score_value 
 var score_time : Timer
 var max_hp = 50
 var hp
