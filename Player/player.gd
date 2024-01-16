@@ -103,8 +103,6 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			moving = false
 		move_and_slide()
-
-
 func _on_area_2d_body_entered(body):
 	print(body.name)
 	if body.name == "Enemy":
