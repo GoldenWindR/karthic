@@ -2,7 +2,11 @@ extends CharacterBody2D
 @onready var Player_sprite = $AnimatedSprite2D
 @onready var shild_status = $shild
 @onready var shildnr = $shild/shildnr
+@onready var score = $ColorRect/Label
 
+
+var score_value
+var score_time : Timer
 var max_hp = 50
 var hp
 var shild = 0
@@ -18,6 +22,7 @@ var canWalk = false
 var direction
 
 func _ready():
+	$Timer.start()
 	hp = Global.hp_now()
 	health_progress_bar = $ProgressBar
 	var currentScene = get_tree().get_current_scene()
@@ -25,6 +30,8 @@ func _ready():
 		canWalk = true
 	
 func _process(delta):
+	score_value = Global.pull_score()
+	score.set_text(str(score_value)) 
 	health_progress_bar.max_value = max_hp 
 	health_progress_bar.value = hp 
 	if shild > 0:
@@ -44,7 +51,7 @@ func take_damage(damage: int):
 	if damage > 0:
 		hp -= damage
 		Global.change_hp(hp)
-		print("damage w bochatera", damage)
+		lost_score(damage)
 		if hp <=0:
 			hp =0
 			if hp <= 0:
@@ -53,8 +60,16 @@ func take_damage(damage: int):
 				get_tree().change_scene_to_file("res://GameOver/GameOver.tscn")
 				hide()
 		
+func get_score():
+	return score_value
 
-
+func lost_score(value):
+	score_value -= value
+	Global.take_score(score_value)
+	
+func add_score(value):
+	score_value +=	value *3 
+	Global.take_score(score_value)
 func mana_cost(amount):
 	mana -= amount
 
@@ -105,3 +120,10 @@ func poison_status():
 func fier_status():
 	return is_on_fier
 
+
+
+func _on_timer_timeout():
+	score_value -= 1
+	Global.take_score(score_value)
+	
+	pass # Replace with function body.

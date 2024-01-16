@@ -1,5 +1,5 @@
 extends Node
-var Soccer : int = 800
+var Soer : int = 800
 var Player_hp = 50
 var Enemy1_live : bool = true
 var Enemy2_live : bool = true
@@ -7,6 +7,10 @@ var Enemy3_live : bool = true
 
 
 
+func pull_score():
+	return Soer
+func take_score(value):
+	Soer = value 
 func _ready():
 	pass # Replace with function body.
 
