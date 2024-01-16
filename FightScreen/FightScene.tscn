@@ -1,20 +1,67 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy2ng33wnpnjx"]
+[gd_scene load_steps=10 format=3 uid="uid://cy2ng33wnpnjx"]
 
 [ext_resource type="PackedScene" uid="uid://btl3jrqdy5nma" path="res://Player/player.tscn" id="1_15kpb"]
+[ext_resource type="Script" path="res://FightScreen/FightScene.gd" id="1_gtrdr"]
 [ext_resource type="PackedScene" uid="uid://dew7e5wpuifgu" path="res://Enemy/enemy.tscn" id="2_1tt3n"]
+[ext_resource type="Texture2D" uid="uid://rg3v8kfxmpju" path="res://assets/tlo_walka.png" id="2_li8dl"]
+[ext_resource type="PackedScene" uid="uid://1h2xf1bhkbw2" path="res://card/card.tscn" id="4_ruv1l"]
+[ext_resource type="Texture2D" uid="uid://iunq1i3xkln7" path="res://assets/ruda.png" id="6_px4f2"]
+[ext_resource type="FontFile" uid="uid://bnwavei46sbfb" path="res://Fonts/Perfect DOS VGA 437 Win.ttf" id="7_8cb4b"]
+[ext_resource type="Script" path="res://FightScreen/Label.gd" id="7_xlinu"]
+[ext_resource type="Script" path="res://FightScreen/Button.gd" id="9_do18d"]
 
 [node name="FightScene" type="Node2D"]
+position = Vector2(-583, -543)
+script = ExtResource("1_gtrdr")
 
-[node name="Button" type="Button" parent="."]
-offset_right = 170.0
-offset_bottom = 55.0
-text = "LeaveBattle"
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(568, 372)
+scale = Vector2(2.61458, 3.1125)
+texture = ExtResource("2_li8dl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 325)
 
 [node name="Player" parent="." instance=ExtResource("1_15kpb")]
-position = Vector2(126, 372)
+position = Vector2(183, 501)
+scale = Vector2(2, 2)
 motion_mode = 1
 
 [node name="Enemy" parent="." instance=ExtResource("2_1tt3n")]
-position = Vector2(1057, 379)
+position = Vector2(941, 553)
+scale = Vector2(2.03, 2.03)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 1025.0
+offset_top = 3.0
+offset_right = 1151.0
+offset_bottom = 93.0
+text = "Konieć
+tury"
+script = ExtResource("9_do18d")
+
+[node name="Card" parent="." instance=ExtResource("4_ruv1l")]
+position = Vector2(730, 535)
+
+[node name="Card2" parent="." instance=ExtResource("4_ruv1l")]
+position = Vector2(586, 532)
+
+[node name="Card3" parent="." instance=ExtResource("4_ruv1l")]
+position = Vector2(442, 532)
+
+[node name="Ruda" type="Sprite2D" parent="."]
+position = Vector2(292, 511)
+scale = Vector2(0.654, 0.775)
+texture = ExtResource("6_px4f2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 282.0
+offset_top = 486.0
+offset_right = 339.0
+offset_bottom = 545.0
+theme_override_fonts/font = ExtResource("7_8cb4b")
+theme_override_font_sizes/font_size = 55
+text = "2"
+script = ExtResource("7_xlinu")

@@ -1,8 +1,7 @@
 extends Node2D
 
 
-func _on_button_pressed():
-	get_tree().change_scene_to_file("res://Worlds/world.tscn")
-	
+func enemy_name():
+	var enemy = get_node('Enemy')
+	return enemy
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -5,6 +5,26 @@ extends Button
 func _ready():
 	pass
 func _pressed():
-	get_tree().change_scene_to_file("res://Worlds/world.tscn")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	var Player=get_parent().get_node("Player")
+	var Enemy=get_parent().get_node("Enemy")
+	if Enemy:
+		Enemy.turn_number()
+		Enemy.attack_animation()
+	if Player:
+		Player.take_damage(Enemy.dmg_now())
+		Enemy.dmg_rng()
+		Player.mana_reset()
+
+	
+	var CardResset=get_parent().get_node("Card")
+	if CardResset:
+		CardResset.reset_object(50)
+		
+	var CardResset2=get_parent().get_node("Card2")
+	if CardResset2:
+		CardResset2.reset_object(-100)
+		
+	var CardResset3=get_parent().get_node("Card3")
+	if CardResset3:
+		CardResset3.reset_object(-250)
 
